@@ -33,7 +33,7 @@ body {
 }
 
 .dollar:before {
-  content: '$';
+  content: "$";
   color: #52a563;
 }
 
