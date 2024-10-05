@@ -4,16 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mark's Terminal</title>
+
+    <!-- Include xterm.css for styling the terminal -->
+    <link rel="stylesheet" href="path/to/xterm.css">
+
+    <!-- Your custom stylesheet -->
     <link rel="stylesheet" href="styles.css">
+<<<<<<< HEAD
+=======
+
+    <style>
+        /* Optional: Set up the terminal container's dimensions */
+        #xterm-container {
+            width: 100%;
+            height: 400px; /* Adjust as needed */
+            background-color: black; /* For a terminal-like look */
+        }
+    </style>
+>>>>>>> 194fcb1 (asdf)
 </head>
 <body>
-    <div id="terminal">
-        <div id="output"></div>
-        <div id="input-line">
-            <span class="prompt">> </span>
-            <input type="text" id="user-input" autofocus />
-        </div>
-    </div>
+    <!-- Terminal Container for xterm.js -->
+    <div id="xterm-container"></div>
+
+    <!-- Include xterm.js library -->
+    <script src="path/to/xterm.js"></script>
+
+    <!-- Include your custom script -->
     <script src="script.js"></script>
 </body>
 </html>
