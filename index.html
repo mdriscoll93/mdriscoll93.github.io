@@ -1,34 +1,45 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mark's Terminal</title>
-
-    <!-- Include xterm.css for styling the terminal -->
-    <link rel="stylesheet" href="path/to/xterm.css">
     
-    <!-- Your custom stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    
+    <!-- Xterm.js CSS (local) -->
+    <link rel="stylesheet" href="css/xterm.css">
 
-    <style>
-        /* Optional: Set up the terminal container's dimensions */
-        #xterm-container {
-            width: 100%;
-            height: 400px; /* Adjust as needed */
-            background-color: black; /* For a terminal-like look */
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Terminal Container for xterm.js -->
-    <div id="xterm-container"></div>
+    <!-- Navbar using Bulma -->
+    <nav class="navbar is-dark">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                Mark's Terminal
+            </a>
+        </div>
+    </nav>
 
-    <!-- Include xterm.js library -->
-    <script src="path/to/xterm.js"></script>
-    
+    <!-- Terminal Container -->
+    <div class="container mt-5">
+        <div id="xterm-container"></div>
+    </div>
+
+    <!-- Include Xterm.js (local) -->
+    <script src="js/xterm.js"></script>
+
     <!-- Include your custom script -->
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const term = new Terminal(); // Instantiate the terminal
+            term.open(document.getElementById('xterm-container')); // Open the terminal in the container
+            term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ '); // Write a message to the terminal
+        });
+    </script>
 </body>
 </html>
-

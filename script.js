@@ -1,8 +1,10 @@
-import { Terminal } from 'xterm';
-
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize the terminal
     const terminal = new Terminal();
     terminal.open(document.getElementById('xterm-container'));
+    
+    // Add some initial logging to check script execution
+    console.log('Terminal initialized and opened.');
 
     // Commands dictionary
     const commands = {
@@ -31,28 +33,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Listen for terminal input
     terminal.onData((data) => {
+        // Log input data for debugging
+        console.log('Received input:', data);
+        
         // Handle Enter key (ASCII code 13)
         if (data.charCodeAt(0) === 13) {
-            terminal.write('\r\n'); // Move to the next line
+            terminal.write('\r\n');
             const outputText = processCommand(inputBuffer);
             if (outputText) {
                 terminal.write(`${outputText}\r\n`);
             }
             inputBuffer = ''; // Clear input buffer
             terminal.write('> '); // Display a new prompt
-        }
-        // Handle Backspace (ASCII code 127)
-        else if (data.charCodeAt(0) === 127) {
+        } else if (data.charCodeAt(0) === 127) { // Handle Backspace key
             if (inputBuffer.length > 0) {
-                inputBuffer = inputBuffer.slice(0, -1); // Remove last character
-                terminal.write('\b \b'); // Erase the last character on the terminal
+                inputBuffer = inputBuffer.slice(0, -1);
+                terminal.write('\b \b');
             }
-        }
-        // Handle other input
-        else {
+        } else {
             inputBuffer += data;
             terminal.write(data);
         }
     });
+
+    // Ensure the terminal is focused
+    terminal.focus();
 });
 
