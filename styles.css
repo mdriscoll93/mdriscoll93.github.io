@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Reset styling */
 * {
     margin: 0;
@@ -34,10 +35,32 @@ body {
     border: none;
     outline: none;
     color: inherit;
+=======
+body {
+  font: 12px "Monaco", Inconsolata, monospace;
+  background: #083952;
+  color: #f8f8f8;
+}
+
+.terminal {
+  background: transparent;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -50px;
+  margin-left: -125px;
+  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.4);
+  width: 250px;
+  font: inherit;
+  border: none;
+  outline: none;
+  color: inherit;
+>>>>>>> bffdad3b4605664e6908b2fdab17551735c12d27
 }
 
 /* Prompt Styling */
 .dollar:before {
+<<<<<<< HEAD
     content: "$";
     color: #52a563; /* Green color for the prompt */
 }
@@ -45,11 +68,26 @@ body {
 .home {
     color: #e28d47; /* Orange color for specific text */
     padding-bottom: 3px;
+=======
+  content: '$';
+  color: #52a563;
+}
+
+.home {
+  color: #e28d47;
+  padding-bottom: 3px;
+>>>>>>> bffdad3b4605664e6908b2fdab17551735c12d27
 }
 
 /* Link Styling */
 a {
+<<<<<<< HEAD
     font: 12px "Monaco", Inconsolata, monospace;
     text-decoration: underline;
     color: #f8f8f8; /* Link color */
+=======
+  font: 12px "Monaco", Inconsolata, monospace;
+  text-decoration: underline;
+  color: #f8f8f8;
+>>>>>>> bffdad3b4605664e6908b2fdab17551735c12d27
 }
