@@ -1,33 +1,29 @@
 /* Body Styling */
 body {
-  background-color: #003344; /* Set the background color to match the image */
-  color: #afafaf; /* Text color */
+  background-color: #003344; /* Dark background color */
+  color: #afafaf; /* Light gray text color */
   font-family: 'Courier New', Courier, monospace;
   margin: 0;
-  padding: 20px;
-  display: flex; /* Center content vertically and horizontally */
+  padding: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh; /* Full viewport height */
 }
 
 /* Main Content Styling */
 .main-content {
   text-align: left;
   line-height: 1.5;
-  white-space: pre; /* Preserve formatting for terminal-style output */
+  white-space: pre; /* Preserve spacing and line breaks */
+  padding: 20px; /* Add padding around the text */
 }
 
 /* Prompt and Text Styling */
 .main-content .prompt {
-  color: #5af78e; /* Green prompt color */
+  color: #5af78e; /* Green color for prompt */
 }
 
 .main-content .text {
   color: #afafaf; /* Default text color */
-}
-
-/* Hide cursor for simplicity */
-.main-content .cursor {
-  display: none;
 }
