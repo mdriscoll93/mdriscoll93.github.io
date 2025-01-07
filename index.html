@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mark's Terminal</title>
-    
+
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-    
+
     <!-- Xterm.js CSS (local) -->
     <link rel="stylesheet" href="css/xterm.css">
 
@@ -34,12 +33,6 @@
     <script src="js/xterm.js"></script>
 
     <!-- Include your custom script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const term = new Terminal(); // Instantiate the terminal
-            term.open(document.getElementById('xterm-container')); // Open the terminal in the container
-            term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ '); // Write a message to the terminal
-        });
-    </script>
+    <script src="js/terminal.js"></script>
 </body>
 </html>
