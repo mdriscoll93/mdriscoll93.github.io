@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 term.write(`${args.join(' ')}\r\n`);
             } else if (command === 'clear') {
                 term.clear();
+            } else if (command === 'resume') {
+                term.write("Here's a link to my resume: https://www.self.so/mark-driscoll-was-here\r\n");
             } else if (command) {
                 term.write(`Unknown command: ${command}\r\n`);
             }
