@@ -7,17 +7,21 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Terminal initialized and opened.');
 
     // Commands dictionary
+    // Currently supported: help, clear, cat for viewing files, and resume
     const commands = {
-        help: () => "Available commands: help, cat mark_driscoll_resume.pdf, clear",
+        help: () => "Available commands: help, cat, resume, clear",
         clear: () => {
             terminal.clear();
             return '';
         },
+        // The cat command only displays a not-found message since
+        // no files are currently bundled with the site
         cat: (args) => {
-            if (args[0] === 'mark_driscoll_resume.pdf') {
-                return "Here's a link to my resume: [mark_driscoll_resume.pdf](./mark_driscoll_resume.pdf)";
-            }
             return `File not found: ${args.join(' ')}`;
+        },
+        // Display an online resume link
+        resume: () => {
+            return "Here's a link to my resume: https://www.self.so/mark-driscoll-was-here";
         }
     };
 
