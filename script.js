@@ -13,14 +13,19 @@ document.addEventListener('DOMContentLoaded', () => {
             terminal.clear();
             return '';
         },
-        'cat mark_driscoll_resume.pdf': () => "Here's a link to my resume: [mark_driscoll_resume.pdf](./mark_driscoll_resume.pdf)"
+        cat: (args) => {
+            if (args[0] === 'mark_driscoll_resume.pdf') {
+                return "Here's a link to my resume: [mark_driscoll_resume.pdf](./mark_driscoll_resume.pdf)";
+            }
+            return `File not found: ${args.join(' ')}`;
+        }
     };
 
     // Function to process commands
     function processCommand(input) {
-        const command = input.trim();
+        const [command, ...args] = input.trim().split(/\s+/);
         if (commands[command]) {
-            return commands[command]();
+            return commands[command](args);
         } else {
             return `Command not found: ${command}`;
         }
