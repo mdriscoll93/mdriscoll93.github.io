@@ -3,13 +3,20 @@ document.addEventListener('DOMContentLoaded', () => {
     term.open(document.getElementById('xterm-container'));
     term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');
 
-    term.onData(data => {
-        term.write(data);
-        if (data === '\r') {
-            term.write('\r\n');
-            const commandLine = term._core.buffer.getLine(term._core.buffer.y).translateToString(true).trim();
-            const [command, ...args] = commandLine.split(/\s+/);
+    // Buffer used to collect user input until Enter is pressed
+    let inputBuffer = '';
 
+    term.onData(data => {
+        // Echo printable characters only
+        if (data !== '\r' && data !== '\u007f') {
+            term.write(data);
+        }
+
+        if (data === '\r') {
+            // Move to a new line and process the collected input
+            term.write('\r\n');
+            const [command, ...args] = inputBuffer.trim().split(/\s+/);
+            
             term.write(`Command: ${command}\r\n`);
             term.write(`Arguments: ${args.join(', ')}\r\n`);
 
@@ -20,10 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 term.write(`${args.join(' ')}\r\n`);
             } else if (command === 'clear') {
                 term.clear();
+            } else if (command === 'resume') {
+                term.write("Here's a link to my resume: https://www.self.so/mark-driscoll-was-here\r\n");
             } else if (command) {
                 term.write(`Unknown command: ${command}\r\n`);
             }
             term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');
+            inputBuffer = '';
+        } else if (data === '\u007f') {
+            // Handle Backspace
+            inputBuffer = inputBuffer.slice(0, -1);
+        } else {
+            inputBuffer += data;
         }
     });
 
