@@ -1,4 +1,4 @@
-const { processCommand } = require('../script');
+const { processCommand } = require('../js/script');
 
 describe('processCommand', () => {
   test('help command outputs list', () => {
