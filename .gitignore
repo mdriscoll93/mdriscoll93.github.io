@@ -8,3 +8,4 @@ vendor/
 terminal-portfolio
 mdriscoll93.github.io.code-workspace
 node_modules/
+.vscode/
